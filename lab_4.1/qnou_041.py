@@ -13,3 +13,23 @@ def main():
 
 if __name__ == '__main__':
 	main()
+
+# Extended list of test cases:
+# question
+# QUESTION
+# Colloq
+# IQ
+# Iraq
+# Iraqi
+# IRAQ
+# IRAQI
+# q
+# Qatar
+# QED
+# q's
+# seq
+# inquest
+# qequ
+# aqu
+# QEQU
+# AQU
