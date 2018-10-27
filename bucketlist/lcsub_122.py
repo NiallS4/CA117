@@ -7,7 +7,7 @@ def main():
 	lcs = ''
 	longest = 0
 	
-	for i in range(0, len(s1)):
+	for i in range(len(s1)):
 		if s1[i] in s2:
 			j = i
 			while j < len(s1) and s1[i:j] in s2:
