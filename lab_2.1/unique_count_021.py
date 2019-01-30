@@ -9,9 +9,9 @@ def main():
 				s = s.replace(letter, ' ')
 		words = s.split()
 		for word in words:
-			if word not in unique and word:
+			if word not in unique:
 				unique.append(word)
-		
+
 	print(len(unique))
 
 if __name__ == '__main__':
