@@ -6,8 +6,7 @@ def main():
 		students = f.readlines()
 		highest = 0
 		for line in students:
-			line = line.strip()
-			tokens = line.split()
+			tokens = line.strip().split()
 			tokens[1:] = [' '.join(tokens[1:])]
 			mark = int(tokens[0])
 			name = tokens[1]
