@@ -1,83 +1,48 @@
 import sys
 
 def main():
-	lines = sys.stdin.read().strip()
-	lines = lines.split()
-	total = []
-	for line in lines:
-		total.append(line[-1])
+	ranks = []
+	for line in sys.stdin:
+		line = line.strip().split(',')
+		ranks.append(int(line[-1]))
+	
+	total = len(ranks)
+	
+	(nothing, onepair, twopairs, threekind, straight, flush, 
+		fhouse, fourkind, sflush, rflush) = ([] for i in range(10))
+	
+	for c in ranks:
+		if c == 0:
+			nothing.append(c)
+		elif c == 1:
+			onepair.append(c)
+		elif c == 2:
+			twopairs.append(c)
+		elif c == 3:
+			threekind.append(c)
+		elif c == 4:
+			straight.append(c)
+		elif c == 5:
+			flush.append(c)
+		elif c == 6:
+			fhouse.append(c)
+		elif c == 7:
+			fourkind.append(c)
+		elif c == 8:
+			sflush.append(c)
+		elif c == 9:
+			rflush.append(c) 
 
-	nothing = []
-	for n in total:
-		if n == '0':
-			nothing.append(n)
-	prob_nothing = len(nothing) / len(lines) * 100
-
-	onepair = []
-	for n in total:
-		if n == '1':
-			onepair.append(n)
-	prob_onepair = len(onepair) / len(lines) * 100
-
-	twopairs = []
-	for n in total:
-		if n == '2':
-			twopairs.append(n)
-	prob_twopairs = len(twopairs) / len(lines) * 100
-
-	three = []
-	for n in total:
-		if n == '3':
-			three.append(n)
-	prob_three = len(three) / len(lines) * 100
-
-	straight = []
-	for n in total:
-		if n == '4':
-			straight.append(n)
-	prob_straight = len(straight) / len(lines) * 100
-
-	flush = []
-	for n in total:
-		if n == '5':
-			flush.append(n)
-	prob_flush = len(flush) / len(lines) * 100
-
-	fullh = []
-	for n in total:
-		if n == '6':
-			fullh.append(n)
-	prob_fullh = len(fullh) / len(lines) * 100
-
-	four = []
-	for n in total:
-		if n == '7':
-			four.append(n)
-	prob_four = len(four) / len(lines) * 100
-
-	straight_flush = []
-	for n in total:
-		if n == '8':
-			straight_flush.append(n)
-	prob_straight_flush = len(straight_flush) / len(lines) * 100
-
-	royal_flush = []
-	for n in total:
-		if n == '9':
-			royal_flush.append(n)
-	prob_royal_flush = len(royal_flush) / len(lines) * 100
-
-	print('The probability of nothing is {:.4f}%'.format(prob_nothing))
-	print('The probability of one pair is {:.4f}%'.format(prob_onepair))
-	print('The probability of two pairs is {:.4f}%'.format(prob_twopairs))
-	print('The probability of three of a kind is {:.4f}%'.format(prob_three))
-	print('The probability of a straight is {:.4f}%'.format(prob_straight))
-	print('The probability of a flush is {:.4f}%'.format(prob_flush))
-	print('The probability of a full house is {:.4f}%'.format(prob_fullh))
-	print('The probability of four of a kind is {:.4f}%'.format(prob_four))
-	print('The probability of a straight flush is {:.4f}%'.format(prob_straight_flush))
-	print('The probability of a royal flush is {:.4f}%'.format(prob_royal_flush))
-
+	print('The probability of nothing is {:.4f}%'.format((len(nothing) / total) * 100))
+	print('The probability of one pair is {:.4f}%'.format((len(onepair) / total) * 100))
+	print('The probability of two pairs is {:.4f}%'.format((len(twopairs) / total) * 100))
+	print('The probability of three of a kind is {:.4f}%'.format((len(threekind) / total) * 100))
+	print('The probability of a straight is {:.4f}%'.format((len(straight) / total) * 100))
+	print('The probability of a flush is {:.4f}%'.format((len(flush) / total) * 100))
+	print('The probability of a full house is {:.4f}%'.format((len(fourkind) / total) * 100))
+	print('The probability of four of a kind is {:.4f}%'.format((len(fourkind) / total) * 100))
+	print('The probability of a straight flush is {:.4f}%'.format((len(sflush) / total) * 100))
+	print('The probability of a royal flush is {:.4f}%'.format((len(rflush) / total) * 100))
 
 if __name__ == '__main__':
 	main()
