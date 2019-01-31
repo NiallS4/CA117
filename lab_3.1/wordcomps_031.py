@@ -28,7 +28,7 @@ def cie(words):
 	return [w for w in words if 'cie' in w.lower()]
 		
 def angle(words):
-	return [w for w in words if ('a' in w.lower() and 'n' in w.lower() and 'g' in w.lower() and 'l' in w.lower() and 'e' in w.lower()) and len(w) == 5  and w.lower() != 'angle']
+	return [w for w in words if ('a' in w.lower() and 'n' in w.lower() and 'g' in w.lower() and 'l' in w.lower() and 'e' in w.lower()) and len(w) == 5 and w.lower() != 'angle']
 
 def _iary(words):
 	return len([w for w in words if w.lower()[-4:] == 'iary'])

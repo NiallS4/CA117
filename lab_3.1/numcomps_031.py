@@ -9,7 +9,7 @@ def three_square(n):
 	return [n ** 2 for n in range(1, N + 1) if n % 3 == 0]
 
 def four_double(n):
-	return [n*2 for n in range(1, N + 1) if n % 4 = =0]
+	return [n*2 for n in range(1, N + 1) if n % 4 == 0]
 
 def three_or_four(n):
 	return [n for n in range(1, N + 1) if n % 3 == 0 or n % 4 == 0]
@@ -18,7 +18,7 @@ def three_and_four(n):
 	return [n for n in range(1, N + 1) if n % 3 == 0 and n % 4 == 0]
 
 def replace(n):
-	return ['X' if n % 3 = =0 else n for n in range(1, N + 1)]
+	return ['X' if n % 3 == 0 else n for n in range(1, N + 1)]
 
 def prime(n):
 	return [n for n in range(2, N + 1) if all(n % x != 0 for x in range(2, n))]
