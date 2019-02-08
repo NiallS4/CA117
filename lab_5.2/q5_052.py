@@ -5,10 +5,9 @@ def main():
 	excl = []
 	for line in sys.stdin:
 		line = line.strip().split(':')
-		name =  line[0]
-		marks = line[1].split(',')
-		total = 0
+		name, marks =  line[0], line[1].split(',')
 		try:
+			total = 0
 			for num in marks:
 				total += int(num)
 			d[name] = total
