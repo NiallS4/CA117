@@ -1,31 +1,31 @@
 import sys
 
+def score(a, b, c):
+	return (a ** 2) + (b ** 2) + (c ** 2) + (7  * min(a, b, c))
+
 def main():
 	for line in sys.stdin:
 		words = line.strip().split()
-		a = int(words[0])
-		b = int(words[1])
-		c = int(words[2])
-		d = int(words[3])
+		a, b, c, d = int(words[0]), int(words[1]), int(words[2]), int(words[3])
 		
-		x = a
-		y = b
-		z = c
-		a += d
-		score1 = (a*a) + (b*b) + (c*c) + (7  * min(a, b, c))
-		
-		a = x
-		b += d
-		score2 = (a*a) + (b*b) + (c*c) + (7  * min(a, b, c))
-		
-		b = y
-		c += d
-		score3 = (a*a) + (b*b) + (c*c) + (7  * min(a, b, c))
+		orig_a = a
+		orig_b = b
+		orig_c = c
 
-		c = z
+		score1 = score(a, b, c)
+		
+		a = orig_a
+		b += d
+		score2 = score(a, b, c)
+		
+		b = orig_b
+		c += d
+		score3 = score(a, b, c)
+
+		c = orig_c
 		a += d // 2
 		c += d // 2
-		score4 = (a*a) + (b*b) + (c*c) + (7  * min(a, b, c))
+		score4 = score(a, b, c)
 		
 		print(max(score1, score2, score3, score4))
 		
