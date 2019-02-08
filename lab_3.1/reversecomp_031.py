@@ -1,24 +1,24 @@
 import sys
 
+def bsearch(a, q):
+	low = 0
+	high = len(a)
+	while low < high:
+		mid = (low + high) // 2
+		if a[mid] < q:
+			low = mid + 1
+		elif a[mid] > q:
+			high = mid
+		else:
+			return a[mid] == q
+
+
 def main():
-	s = sys.stdin.readlines()
-	a = set()
-	b = set()
-	words = []
-	for line in s:
-		if len(line.strip()) >= 5:
-			a.add(line.strip())
-	for c in a:
-		f = c
-		c = c.lower()
-		c = c[::-1]
-		d = c.capitalize()
-		if c in a or d in a:
-			b.add(f)
-	for f in b:
-		words.append(f)
-	words = sorted(words, key=str.lower)
-	print(words)
+	words = [line.strip() for line in sys.stdin]
+	words_lower = [line.lower() for line in words]
+
+	print([w for w in words if len(w) >= 5 and bsearch(words_lower, w.lower()[::-1])])
+
 
 if __name__ == '__main__':
 	main()
