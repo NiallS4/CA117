@@ -21,7 +21,7 @@ def main():
 	for k, v in d.items():
 		if len(k) > 3 and v >= 3:
 			nd[k] = v
-	for k,v in sorted(nd.items()):
+	for k, v in sorted(nd.items()):
 		width_keys = len(max(nd.keys(), key=len))
 		width_values = len(max(nd.items(), key=len))
 		print('{:>{:d}s} : {:>{:d}d}'.format(k, width_keys, v, width_values))

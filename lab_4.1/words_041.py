@@ -17,11 +17,8 @@ def build_dictionary():
 
 def main():
 	d = build_dictionary()
-	nd = {}
 	for k, v in sorted(d.items()):
-		nd[k] = v
 		print('{} : {}'.format(k, v))
-	
 
 if __name__ == '__main__':
 	main()
