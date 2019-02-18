@@ -5,7 +5,7 @@ def build_dictionary(file):
 	with open(file, 'r') as f:
 		for line in f:
 			name, phone, email = line.strip().split()
-			d[name] = (phone, email)
+			d[name] = phone, email
 	return d
 
 def main():
@@ -16,7 +16,7 @@ def main():
 		try:
 			print('Phone: {}'.format(d[name][0]))
 			print('Email: {}'.format(d[name][1]))
-		except:
+		except KeyError:
 			print('No such contact')
 
 if __name__ == '__main__':

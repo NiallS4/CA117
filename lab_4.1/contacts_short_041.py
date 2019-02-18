@@ -15,7 +15,7 @@ def main():
 		print('Name: {}'.format(name))
 		try:
 			print('Phone: {}'.format(d[name]))
-		except:
+		except KeyError:
 			print('No such contact')
 
 if __name__ == '__main__':
