@@ -5,8 +5,7 @@ def build_dictionary():
 	d = {}
 	for line in sys.stdin:
 		line = line.lower().strip()
-		chars = [c for c in line]
-		for c in chars:
+		for c in line:
 			c = c.strip(string.punctuation)
 			if c == '':
 				continue
