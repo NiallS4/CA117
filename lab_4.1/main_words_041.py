@@ -25,7 +25,6 @@ def main():
 		width_keys = len(max(nd.keys(), key=len))
 		width_values = len(max(nd.items()))
 		print('{:>{:d}s} : {:>{:d}d}'.format(k, width_keys, v, width_values))
-	
 
 if __name__ == '__main__':
 	main()
