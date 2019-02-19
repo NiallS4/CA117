@@ -5,7 +5,8 @@ def build_dictionary():
 	d = {}
 	for line in sys.stdin:
 		line = line.lower().strip()
-		for c in line:
+		chars = [c for c in line]
+		for c in chars:
 			c = c.strip(string.punctuation)
 			if c == '':
 				continue
@@ -23,7 +24,7 @@ def main():
 		if k in vowels:
 			nd[k] = v
 	for k, v in sorted(nd.items(), key=lambda x: x[1], reverse=True):
-		width_keys = len(max(nd.keys(), key=len))
+		width_keys = len(max(nd.keys()))
 		width_values = len(str(max(nd.values())))
 		print('{:>{:d}s} : {:{:d}d}'.format(k, width_keys, v, width_values))
 	
