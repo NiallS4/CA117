@@ -3,12 +3,12 @@ import sys
 def build_dictionary(file):
 	d = {}
 	for line in file:
-			line = line.strip().split()
-			d[line[0]] = line[1]
+			english, trans = line.strip().split()
+			d[english] = trans
 	return d
 
 def main():
-	nums = {
+	d = {
 	'0' : 'zero',
 	'1' : 'one',
 	'2' : 'two',
@@ -22,22 +22,19 @@ def main():
 	'10' : 'ten'
 	}
 
-	file = sys.argv[1]
-	with open(file, 'r') as file:
-		translation = build_dictionary(file)
+	with open(sys.argv[1], 'r') as f:
+		translation = build_dictionary(f)
 
-	for num in sys.stdin:
+	for line in sys.stdin:
 		l = []
-		numbers = num.strip().split()
-		for n in numbers:
-			if n in nums:
-				n = nums[n]
-				if n in translation:
-					n = translation[n]
-					l.append(n)
-					trans = ' '.join(l)
+		nums = line.strip().split()
+		for n in nums:
+			if n in d:
+				word = d[n]
+				if word in translation:
+					l.append(translation[word])
+		trans = ' '.join(l)
 		print(trans)
-
 
 if __name__ == '__main__':
 	main()

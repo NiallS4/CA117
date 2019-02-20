@@ -1,7 +1,7 @@
 import sys
 
 def main():
-	nums = {
+	d = {
 	'0' : 'zero',
 	'1' : 'one',
 	'2' : 'two',
@@ -15,15 +15,14 @@ def main():
 	'10' : 'ten'
 	}
 
-	for num in sys.stdin:
+	for line in sys.stdin:
 		l = []
-		numbers = num.strip().split()
-		for n in numbers:
-			if n in nums:
-				n = nums[n]
-				l.append(n)
-				numbers = ' '.join(l)
-		print(numbers)
+		nums = line.strip().split()
+		for n in nums:
+			if n in d:
+				l.append(d[n])
+		words = ' '.join(l)
+		print(words)
 
 if __name__ == '__main__':
 	main()

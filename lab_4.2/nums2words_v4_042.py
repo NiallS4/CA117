@@ -1,7 +1,7 @@
 import sys
 
 def main():
-	nums = {
+	d = {
 	'0' : 'zero',
 	'1' : 'one',
 	'2' : 'two',
@@ -33,23 +33,18 @@ def main():
 	'100' : 'one hundred'
 	}
 
-	for num in sys.stdin:
+	for line in sys.stdin:
 		l = []
-		numbers = num.strip().split()
-		for n in numbers:
-			if n in nums:
-				n = nums[n]
-				l.append(n)
-				numbers = ' '.join(l)
+		nums = line.strip().split()
+		for n in nums:
+			if n in d:
+				l.append(d[n])
 			elif n[0] >= '2':
-				n = nums[n[0]+'0'] + '-' + nums[n[1]]
-				l.append(n)
-				numbers = ' '.join(l)
+				l.append(d[n[0] + '0'] + '-' + d[n[1]])
 			else:
-				n = 'unknown'
-				l.append(n)
-				numbers = ' '.join(l)
-		print(numbers)
+				l.append('unknown')
+		words = ' '.join(l)
+		print(words)
 
 if __name__ == '__main__':
 	main()
