@@ -6,10 +6,8 @@ def ssd(num, base):
 	while num > 0:
 		mod = num % base
 		num = num // base
-		converted.append(mod)
-
-	sum_digits = sum([n ** 2 for n in converted])
-	return sum_digits
+		converted.append(mod ** 2)
+	return sum(converted)
 
 def main():
 	fail_count = []
