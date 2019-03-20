@@ -1,7 +1,6 @@
 def maximum(l):
 	if len(l) == 1:
 		return l[0]
-
 	else:
 		nl = maximum(l[1:])
 
